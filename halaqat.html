@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الحلقات - مجمع الفريان</title>
+  <link rel="icon" href="abs.png" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ✅ تصغير الصفحة إلى 75٪ */
+    body {
+      zoom: 95%;
+    }
+
+   
+  </style>
+</head>
+<body>
+
+<style>
+  
+
+  /* ✅ تنسيق قسم الشعارات ليكون في وسط الصفحة */
+    .logos-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0px;
+      padding: 30px;
+      height: calc(100vh - 100px); /* يأخذ كامل الشاشة ناقص الهيدر */
+      box-sizing: border-box;
+      margin-top: 80px; /* مسافة من الهيدر */
+    }
+</style>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="شعار المجمع" />
+    <h3>مجمع الفريان</h3>
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav id="nav" class="side-nav">
+<a href="index.html">الرئيسية</a>
+      <a href="nahn.html">من نحن</a>
+      <a href="alhaikl.html">الهيكل التنظيمي</a>
+       <a href="halaqat.html">الحلقات </a>
+      <a href="reports.html">التقارير</a>
+      <a href="e3lanat.html">الإعلانات</a>
+      <a href="locations.html">مواقع الجوامع</a>
+      <a href="alshrkaa.html">شركاء النجاح</a>
+      <a href="contact.html">تواصل معنا</a>
+      
+  </nav>
+</header>
+
+<div class="logos-section page-top-space">
+  <div class="logo-item arfaj">
+    <img src="arfaj.png" alt="جامع العرفج">
+    <span>حلقات العرفج</span>       <h1></h1>
+     
+  </div>
+
+  <div class="logo-item albra">
+    <img src="albra.png" alt="حلقات البراء">
+    <span> حلقات البراء</span>           <h1></h1>
+    
+  </div>
+
+  <div class="logo-item sfyan">
+    <img src="sfyan.png" alt="جامع الصفيان">
+    <span>حلقات الصفيان</span>        <h1></h1>
+     
+  </div>
+
+  <div class="logo-item qdamah">
+    <img src="qdamh.png" alt="جامع ابن قدامه">
+    <span>حلقات ابن قدامه</span>            <h1></h1>
+    
+  </div>
+
+  <div class="logo-item hila">
+    <img src="hila.png" alt="جامع الهيلة">
+    <span>حلقات هيلة</span>           <h1></h1>
+   
+  </div>
+</div>
+
+
+</div>
+
+
+<footer>
+  <p>جميع الحقوق محفوظة &copy; 2025 مُجَمْع اْلفَرَيان</p>
+</footer>
+
+<div style="height: 20px;"></div>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('nav');
+    nav.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

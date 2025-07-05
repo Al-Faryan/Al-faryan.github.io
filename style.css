@@ -1,0 +1,592 @@
+* {
+  font-family: 'Cairo', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+/* طبقة تعتيم */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2b2b2be6;
+  z-index: -1;
+}
+
+header {
+  background-color: #b18f62;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #b18f62;
+  position: fixed; /* ← الهيدر ثابت */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 70px;
+}
+
+.menu-toggle {
+  font-size: 32px;
+  cursor: pointer;
+  color: white;
+  z-index: 1002;
+}
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #b18f62;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.side-nav.open {
+  left: 0;
+}
+
+.side-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  width: 100%;
+  text-align: right;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.side-nav a:hover {
+  background-color: white;
+  color: #b18f62;
+}
+
+.hero {
+  margin-top: 60px; /* ← مساحة لتفادي تغطية الهيدر */
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 28px;
+  margin-top: -60px;
+}
+
+.ayah-box, .stats-box {
+  background-color: rgba(255, 255, 255, 0.195);
+  border: 2px solid #b18f62;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.ayah-box {
+  margin-top: 90px;
+}
+
+.stats-box {
+  margin-top: 10px;
+}
+
+.ayah {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.stat {
+  flex: 1 1 30%;
+  margin: 10px 0;
+}
+
+footer {
+  background-color: #b18f6200;
+  text-align: center;
+  padding: 2px;
+  color: rgba(255, 255, 255, 0);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.locations-page {
+  padding: 50px 20px;
+  background-color: #f8f6f300;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 23px;
+  margin-top: -30px;
+  color: white;
+}
+
+.mosque-location {
+  margin-bottom: 50px;
+  border: 2px solid #b18f62;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mosque-location h2 {
+  color: #6e4c2f;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.mosque-location iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+}
+
+.about-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.masjid-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 100px;
+}
+
+.masjid-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 2px solid #b18f62;
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease;
+  margin-top: 60px;
+}
+
+.masjid-card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.masjid-card h2 {
+  color: #b18f62;
+  margin-bottom: 10px;
+}
+
+.masjid-card p {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.masjid-img {
+  width: 100%;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.contact-section {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  font-size: 16px;
+  border: 3px solid #b18f62;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  background-color: #b18f62;
+  color: rgb(255, 255, 255);
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #5b3f27;
+}
+
+.registration-section {
+  padding: 20px 15px;
+  background-color: #f8f5f2;
+  max-width: 420px;
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.form-title {
+  color: #6e4c2f;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.registration-form label {
+  display: block;
+  margin: 12px 0 4px;
+  color: #444;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.registration-form input,
+.registration-form select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+
+.registration-form input:focus,
+.registration-form select:focus {
+  border-color: #6e4c2f;
+  outline: none;
+}
+
+.registration-form button {
+  background-color: #b18f62;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.registration-form button:hover {
+  background-color: #5b3f27;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 18px;
+  background-color: #b18f62;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #5b3f27;
+}
+
+.main-logo, .arfaj-logo, .hila-logo, .qdamh-logo, .sfyan-logo, .albra-logo  {
+  position: absolute;
+  height: auto;
+}
+
+html, body {
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.welcome, .news, .about, .contact, .mosque {
+  background-color: #fff8e7;
+  margin: 120px auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 700px;
+  color: #4d392d;
+}
+
+.logos-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 23px;
+  padding: 10px 10px 30px; /* تقليل المسافة العلوية */
+  margin-top: 0; /* إزالة أي فراغ علوي إضافي */
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 22px;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 750px;
+  box-shadow: 0 2px 20px #b18f6291;
+  transition: transform 0.3s ease;
+}
+
+.logo-item:hover {
+  transform: scale(1.02);
+}
+
+.logo-item img {
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-item img:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+.logo-item span {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+  color: #333;
+}
+
+.logo-item.arfaj img,
+.logo-item.hila img,
+.logo-item.qdamah img,
+.logo-item.albra img,
+.logo-item.sfyan img {
+  width: 85px;
+}
+
+
+
+.locations-page {
+  margin-top: 50px; /* تعويض ارتفاع الهيدر */
+}
+
+
+
+
+.page-top-space {
+  margin-top: 120px; /* أو حسب ارتفاع الهيدر */
+}
+
+
+.page-top-space {
+  margin-top: 225px; /* عدّل الرقم حسب ارتفاع الهيدر لديك */
+}
+
+.registration-section {
+  margin-top: 120px; /* إزاحة النموذج تحت الهيدر */
+}
+
+.partners-section{
+  margin-top: 120px; /* إزاحة النموذج تحت الهيدر */
+}
+
+ 
+
+
+
+
+/* فراغ علوي لتفادي تغطية الهيدر */
+body::after {
+  content: "";
+  display: block;
+  height: 100px; /* مساحة إضافية بعد المحتوى السفلي قبل الفوتر */
+}
+
+/* تعديل المسافات داخل الصفحة */
+.main-content {
+  padding-top: 3px; /* تعويض الهيدر */
+  padding-bottom: 120px; /* تعويض الفوتر */
+}
+
+/* في حال احتجت استخدام هذا الكلاس في الصفحة */
+.page-padding {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+  
+
+.contact-form {
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+
+
+
+
+
+.reports-section {
+  padding: 40px 30px;
+  margin-top: 120px; /* تعويض الهيدر */
+  color: #4d392d;
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  margin-top: 50px;
+}
+
+.report-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid #b18f62;
+  border-radius: 12px;                  
+  padding: 20px;
+  text-align: right;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.report-card:hover {
+  transform: translateY(-5px);
+}
+
+.report-card h2 {
+  color: #e7dacf;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.report-card p {
+  font-size: 15px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.report-btn {
+  display: inline-block;
+  background-color: #b18f62;
+  color: white;
+  padding: 10px 18px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.report-btn:hover {
+  background-color: #5b3f27;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.partners-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #5d5d5d00;
+}
+
+.partners-section h1 {
+  font-size: 30px;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.logo-item {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.logo-item:hover {
+  transform: scale(1.05);
+}
+
+.logo-item img {
+  width: 100%;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+
+
+
+

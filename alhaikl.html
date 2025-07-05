@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الهيكل التنظيمي - مجمع الفريان</title>
+  <link rel="icon" href="abs.png" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      zoom: 95%;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f5f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffffff;
+      margin: 120px 0 40px;
+    }
+
+    .org-chart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 80px; /* ✅ حتى لا يلامس الفوتر */
+    }
+
+    .org-level {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+    }
+
+    .org-box {
+      background-color: #d9c7b0;
+      padding: 15px 20px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      color: #000000;
+      min-width: 160px;
+      box-shadow: 0 2px 5px rgb(0, 0, 0);
+    }
+
+    .line-down {
+      width: 2px;
+      height: 20px;
+      background-color: #8B5E3C;
+      margin: auto;
+    }
+
+    .line-horizontal {
+      width: 100%;
+      height: 2px;
+      background-color: #8B5E3C;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .sub-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .sub-box {
+      background-color: #f0e8dd;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #000000;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.692);
+    }
+
+    footer {
+  background-color: #b18f6200;
+  text-align: center;
+  padding: 2px;
+  color: rgba(255, 255, 255, 0);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+    @media screen and (max-width: 768px) {
+      .org-box, .sub-box {
+        min-width: 130px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="شعار المجمع" />
+      <h3>مجمع الفريان</h3>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav" class="side-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="nahn.html">من نحن</a>
+      <a href="alhaikl.html">الهيكل التنظيمي</a>
+      <a href="halaqat.html">الحلقات </a>
+      <a href="reports.html">التقارير</a>
+      <a href="e3lanat.html">الإعلانات</a>
+      <a href="locations.html">مواقع الجوامع</a>
+      <a href="alshrkaa.html">شركاء النجاح</a>
+      <a href="contact.html">تواصل معنا</a>
+      
+    </nav>
+  </header>
+
+  <h2>الهيكل التنظيمي لمجمع الصفيان</h2>
+
+  <div class="org-chart">
+    <div class="org-level">
+      <div class="org-box">مجلس الإدارة</div>
+    </div>
+    <div class="line-down"></div>
+
+    <div class="org-level">
+      <div class="org-box">المدير التنفيذي</div>
+    </div>
+    <div class="line-down"></div>
+
+    <div class="org-level">
+      <div class="org-box">سكرتير</div>
+    </div>
+
+    <div class="org-level">
+      <div class="org-box">إدارة العلاقات والاتصال المؤسسي</div>
+      <div class="org-box">إدارة الشؤون المالية والإدارية</div>
+      <div class="org-box">إدارة شؤون المساجد والتعليم</div>
+      <div class="org-box">إدارة التسويق والإعلام</div>
+      <div class="org-box">إدارة الجودة والتطوير</div>
+      <div class="org-box">إدارة التحفيز</div>
+    </div>
+
+    <div class="org-level">
+      <div class="org-box">اللجنة التعليمية</div>
+    </div>
+    <div class="line-down"></div>
+
+    <div class="org-level">
+      <div class="org-box">شؤون المساجد</div>
+    </div>
+
+    <div class="org-level">
+      <div class="org-box">
+        حلقات الصفيان
+        <div class="sub-boxes">
+          <div class="sub-box">إداري</div>
+          <div class="sub-box">معلمين</div>
+        </div>
+      </div>
+      <div class="org-box">
+        حلقات ابن قدامة
+        <div class="sub-boxes">
+          <div class="sub-box">إداري</div>
+          <div class="sub-box">معلمين</div>
+        </div>
+      </div>
+      <div class="org-box">
+        حلقات هيلة
+        <div class="sub-boxes">
+          <div class="sub-box">إداري</div>
+          <div class="sub-box">معلمين</div>
+        </div>
+      </div>
+      <div class="org-box">
+        حلقات العرفج
+        <div class="sub-boxes">
+          <div class="sub-box">إداري</div>
+          <div class="sub-box">معلمين</div>
+        </div>
+      </div>
+      <div class="org-box">
+        حلقات البراء
+        <div class="sub-boxes">
+          <div class="sub-box">إداري</div>
+          <div class="sub-box">معلمين</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>جميع الحقوق محفوظة &copy; 2025 مُجَمْع اْلفَرَيان</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

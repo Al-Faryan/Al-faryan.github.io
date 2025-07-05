@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> الرئيسية - مجمع الفريان</title>
+  <link rel="icon" href="abs.png" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<style>
+
+   /* ✅ تصغير الصفحة إلى 75٪ */
+    body {
+      zoom: 95%;
+    }
+.btn {
+  text-align: center;       /* توسيط المحتوى */
+  margin-top: 30px;
+  display: flex;            /* لضبط الزر في المنتصف */
+  justify-content: center;
+}
+
+.cta-btn {
+  background-color: #b18f62;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+.cta-btn:hover {
+  background-color: #9f7f52;
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .cta-btn {
+    width: auto;           /* يجعل الزر أقصر */
+    max-width: 80%;        /* لا يتجاوز 80% من عرض الشاشة */
+    font-size: 16px;
+    padding: 10px 25px;
+  }
+}
+
+ footer {
+  background-color: #b18f62;
+  text-align: center;
+  padding: 2px;
+  color: rgb(255, 255, 255);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+</style>
+
+
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="شعار المجمع" />
+      <h3>مجمع الفريان</h3>
+    </div>
+
+    
+
+  
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="nav" class="side-nav">
+    <a href="index.html">الرئيسية</a>
+      <a href="nahn.html">من نحن</a>
+      <a href="alhaikl.html">الهيكل التنظيمي</a>
+       <a href="halaqat.html">الحلقات </a>
+      <a href="reports.html">التقارير</a>
+      <a href="e3lanat.html">الإعلانات</a>
+      <a href="locations.html">مواقع الجوامع</a>
+      <a href="alshrkaa.html">شركاء النجاح</a>
+      <a href="contact.html">تواصل معنا</a>
+      
+
+  </nav>
+  
+  </header>
+
+
+  <body class="main-content"></body>
+
+  
+
+    
+
+
+  <footer>
+    <p>جميع الحقوق محفوظة &copy; 2025 مُجَمْع اْلفَرَيان</p>
+  </footer>
+
+ 
+
+
+  <section class="hero">
+    <h2>مرحباً بكم في مجمع الفريان لتحفيظ القرآن</h2>
+  </section>
+  
+    <div class="btn">
+     <a class="cta-btn" href="register.html">سجل معنا</a>
+    </div>
+
+  
+  <div class="ayah-box">
+    <p class="ayah" id="ayah">"وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ"</p>
+  </div>
+
+  <div class="stats-box">
+    <div class="stats">
+      <div class="stat"><strong> المعلمين: </strong> 400 </div> 
+      <div class="stat"><strong> الطلاب: </strong> 3500 </div>
+      <div class="stat"><strong> الحلقات: </strong> 27 </div>
+    </div>
+  </div>
+
+  <script>
+    const ayat = [
+      "وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا ",
+      "إِنَّ هَذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ",
+      "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ",
+      "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+      "كِتَابٌ أَنزَلْنَاهُ إِلَيْكَ مُبَارَكٌ",
+      "وَاذْكُرْ رَبَّكَ فِي نَفْسِكَ"
+    ];
+
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % ayat.length;
+      document.getElementById('ayah').textContent = `"${ayat[index]}"`;
+    }, 5000);
+
+  </script>
+
+    <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

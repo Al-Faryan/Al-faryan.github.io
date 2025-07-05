@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الإعلانات - مجمع الفريان</title>
+  <link rel="icon" href="abs.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      zoom: 95%;
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      background-color: #f4f1ec;
+    }
+
+    .ads-section {
+  text-align: center;
+  padding: 50px 15px 30px; /* ↑↑ زودت المسافة العلوية */
+  margin-top: 25px; /* حل مشكلة دخول العنوان داخل الهيدر */
+}
+
+
+
+    .ads-section h2 {
+      font-size: 28px;
+      color: #b18f62;
+      margin-bottom: 20px;
+    }
+
+    .ad-container {
+  position: relative;
+  width: 90%;
+  max-width: 350px; /* ↓↓ قللت الحجم شوي */
+  margin: auto;
+}
+
+    #adImage {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(110, 76, 47, 0.8);
+      color: white;
+      border: none;
+      font-size: 20px;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .arrow:hover {
+      background-color: #b18f62;
+    }
+
+    .arrow-left {
+      right: -40px;
+    }
+
+    .arrow-right {
+      left: -40px;
+    }
+
+    .dots {
+      margin-top: 10px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background-color: #ccc;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #6e4c2f;
+    }
+
+    @media (max-width: 600px) {
+      .ad-container {
+        max-width: 90%;
+      }
+      .arrow-left {
+        right: 10px;
+        top: 100%;
+        transform: translateY(0);
+      }
+      .arrow-right {
+        left: 10px;
+        top: 100%;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ نفس الهيدر -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="شعار المجمع" />
+      <h3>مجمع الفريان</h3>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav" class="side-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="nahn.html">من نحن</a>
+      <a href="alhaikl.html">الهيكل التنظيمي</a>
+      <a href="halaqat.html">الحلقات </a>
+      <a href="reports.html">التقارير</a>
+      <a href="e3lanat.html">الإعلانات</a>
+      <a href="locations.html">مواقع الجوامع</a>
+      <a href="alshrkaa.html">شركاء النجاح</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+  </header>
+
+  <section class="ads-section">
+    <h2>الإعلانات</h2>
+    <div class="ad-container">
+      <button class="arrow arrow-left" onclick="prevAd()">❮</button>
+      <img id="adImage" src="الاعلانات/B1.jpeg" alt="إعلان" />
+      <button class="arrow arrow-right" onclick="nextAd()">❯</button>
+    </div>
+    <div class="dots" id="dotsContainer"></div>
+  </section>
+
+  <!-- ✅ نفس الفوتر -->
+  <footer>
+    <p>جميع الحقوق محفوظة &copy; 2025 مُجَمْع اْلفَرَيان</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('open');
+    }
+
+    const adImages = [
+      'الاعلانات/B1.jpeg',
+      'الاعلانات/B2.jpeg',
+      
+    ];
+    let currentAd = 0;
+    let interval;
+
+    function showAd(index) {
+      const img = document.getElementById('adImage');
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = adImages[index];
+        img.style.opacity = 1;
+        updateDots();
+      }, 200);
+    }
+
+    function nextAd() {
+      currentAd = (currentAd + 1) % adImages.length;
+      showAd(currentAd);
+      restartAutoSlide();
+    }
+
+    function prevAd() {
+      currentAd = (currentAd - 1 + adImages.length) % adImages.length;
+      showAd(currentAd);
+      restartAutoSlide();
+    }
+
+    function startAutoSlide() {
+      interval = setInterval(() => {
+        nextAd();
+      }, 5000);
+    }
+
+    function restartAutoSlide() {
+      clearInterval(interval);
+      startAutoSlide();
+    }
+
+    function createDots() {
+      const dotsContainer = document.getElementById('dotsContainer');
+      for (let i = 0; i < adImages.length; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === currentAd) dot.classList.add('active');
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentAd);
+      });
+    }
+
+    window.onload = () => {
+      createDots();
+      showAd(currentAd);
+      startAutoSlide();
+    };
+  </script>
+
+</body>
+</html>

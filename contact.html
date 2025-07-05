@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تواصل معنا - مجمع الفريان</title>
+  <link rel="icon" href="abs.png" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <style>
+    /* ✅ تصغير الصفحة إلى 75٪ */
+    body {
+      zoom: 95%;
+    }
+    </style>
+
+      
+
+
+    
+
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="شعار المجمع" />
+      <h3>مجمع الفريان</h3>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="nav" class="side-nav">
+    <a href="index.html">الرئيسية</a>
+      <a href="nahn.html">من نحن</a>
+      <a href="alhaikl.html">الهيكل التنظيمي</a>
+      <a href="halaqat.html">الحلقات </a>
+      <a href="reports.html">التقارير</a>
+      <a href="e3lanat.html">الإعلانات</a>
+      <a href="locations.html">مواقع الجوامع</a>
+      <a href="alshrkaa.html">شركاء النجاح</a>
+      <a href="contact.html">تواصل معنا</a>
+      
+  </nav>
+  </header>
+
+      
+  <footer>
+    <p>جميع الحقوق محفوظة &copy; 2025 مُجَمْع اْلفَرَيان</p>
+  </footer>
+
+  <section class="contact-section">
+  <form class="contact-form" onsubmit="return handleContactSubmit(event)">
+    <input type="text" name="name" placeholder="الاسم الكامل" required />
+    <input type="tel" name="phone" placeholder="رقم الهاتف" required />
+    <input type="email" name="email" placeholder="البريد الإلكتروني" required />
+    <textarea name="message" placeholder="رسالتك" required></textarea>
+    <button type="submit">إرسال</button>
+   
+  </form>
+</section>
+
+<script>
+  function handleContactSubmit(event) {
+    event.preventDefault();
+
+    const form = document.querySelector(".contact-form");
+    const formData = new FormData(form);
+
+    fetch("https://script.google.com/macros/s/AKfycbx_6r2WMad4pcu1pIWMEMZiVRXMsje0OQq15xRy8-fYJOeniiYgbfFYfU11x2j3tZ2w/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+       window.location.href = "success2.html";
+      } else {
+        alert("حدث خطأ أثناء إرسال النموذج، حاول مرة أخرى.");
+      }
+    })
+    .catch(error => {
+      alert("فشل الاتصال بالخادم: " + error.message);
+    });
+
+    return false;
+  }
+</script>
+
+ <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('open');
+    }
+  </script>
+
+  
+  
+</body>
+</html>
